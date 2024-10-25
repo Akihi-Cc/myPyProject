@@ -59,8 +59,8 @@ tinydict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
 del tinydict['Name']  # 删除键 'Name'
 tinydict.clear()  # 清空字典
 del tinydict  # 删除字典
-print("tinydict['Age']: ", tinydict['Age'])  # 异常 NameError: name 'tinydict' is not defined
-print("tinydict['School']: ", tinydict['School'])
+# print("tinydict['Age']: ", tinydict['Age'])  # 异常 NameError: name 'tinydict' is not defined
+# print("tinydict['School']: ", tinydict['School']) # 异常 NameError: name 'tinydict' is not defined. Did you mean: 'tinydict1'?
 # 但这会引发一个异常，因为用执行 del 操作后字典不再存在：
 
 print("【5】 字典键的特性 *******************************************")
@@ -70,7 +70,7 @@ print("【5】 字典键的特性 *******************************************")
 tinydict = {'Name': 'Runoob', 'Age': 7, 'Name': '小菜鸟'}
 print("tinydict['Name']: ", tinydict['Name'])
 # 2）键必须不可变，所以可以用数字，字符串或元组充当，而用列表就不行，如下实例：
-tinydict = {['Name']: 'Runoob', 'Age': 7}
+# tinydict = {['Name']: 'Runoob', 'Age': 7}  # 异常 TypeError: unhashable type: 'list'
 print ("tinydict['Name']: ", tinydict['Name'])
 
 print("【6】 字典内置函数&方法 *******************************************")
