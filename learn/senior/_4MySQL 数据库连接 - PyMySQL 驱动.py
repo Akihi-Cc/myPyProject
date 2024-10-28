@@ -58,8 +58,6 @@ db.close()
 
 # 创建数据库表
 # 如果数据库连接存在我们可以使用execute()方法来为数据库创建表，如下所示创建表EMPLOYEE：
-# !/usr/bin/python3
-
 import pymysql
 
 # 打开数据库连接
@@ -89,8 +87,6 @@ db.close()
 
 # 数据库插入操作
 # 以下实例使用执行 SQL INSERT 语句向表 EMPLOYEE 插入记录：
-# !/usr/bin/python3
-
 import pymysql
 
 # 打开数据库连接
@@ -119,8 +115,6 @@ except:
 db.close()
 
 # 以上例子也可以写成如下形式：
-# !/usr/bin/python3
-
 import pymysql
 
 # 打开数据库连接
@@ -165,8 +159,6 @@ db.close()
 # rowcount: 这是一个只读属性，并返回执行execute()方法后影响的行数。
 # 实例：
 # 查询EMPLOYEE表中salary（工资）字段大于1000的所有数据：
-# !/usr/bin/python3
-
 import pymysql
 
 # 打开数据库连接
@@ -203,8 +195,6 @@ db.close()
 
 # 数据库更新操作
 # 更新操作用于更新数据表的数据，以下实例将 TESTDB 表中 SEX 为 'M' 的 AGE 字段递增 1：
-# !/usr/bin/python3
-
 import pymysql
 
 # 打开数据库连接
@@ -232,8 +222,6 @@ db.close()
 
 # 删除操作
 # 删除操作用于删除数据表中的数据，以下实例演示了删除数据表 EMPLOYEE 中 AGE 大于 20 的所有数据：
-# !/usr/bin/python3
-
 import pymysql
 
 # 打开数据库连接
