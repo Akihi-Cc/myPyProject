@@ -72,7 +72,7 @@ try:
 except smtplib.SMTPException:
     print("Error: 无法发送邮件")
 
-# 使用Python发送HTML格式的邮件
+print("【1】 使用Python发送HTML格式的邮件 *******************************************")
 # Python发送HTML格式的邮件与发送纯文本消息的邮件不同之处就是将MIMEText中_subtype设置为html。具体代码如下：
 # !/usr/bin/python3
 
@@ -101,7 +101,7 @@ try:
 except smtplib.SMTPException:
     print("Error: 无法发送邮件")
 
-# Python 发送带附件的邮件
+print("【2】 Python 发送带附件的邮件 *******************************************")
 # 发送带附件的邮件，首先要创建MIMEMultipart()实例，然后构造附件，如果有多个附件，可依次构造，最后利用smtplib.smtp发送。
 import smtplib
 from email.mime.text import MIMEText
@@ -141,10 +141,8 @@ try:
 except smtplib.SMTPException:
     print("Error: 无法发送邮件")
 
-# 在 HTML 文本中添加图片
+print("【2】 在 HTML 文本中添加图片 *******************************************")
 # 邮件的 HTML 文本中一般邮件服务商添加外链是无效的，正确添加图片的实例如下所示：
-# !/usr/bin/python3
-
 import smtplib
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
@@ -187,6 +185,7 @@ try:
 except smtplib.SMTPException:
     print("Error: 无法发送邮件")
 
+print("【3】 使用第三方 SMTP 服务发送 *******************************************")
 # QQ 邮箱 SMTP 服务器地址：smtp.qq.com，ssl 端口：465。
 # 以下实例你需要修改：发件人邮箱（你的QQ邮箱），密码，收件人邮箱（可发给自己）。
 import smtplib
