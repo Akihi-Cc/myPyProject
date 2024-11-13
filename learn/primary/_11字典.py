@@ -15,7 +15,7 @@ tinydict2 = {'abc': 123, 98.6: 37}
 print(tinydict1)
 print(tinydict2)
 
-print("【1】 创建空字典 *******************************************")
+print("*******************************************【1】 创建空字典 *******************************************")
 # 使用大括号 { } 创建空字典：
 # 使用大括号 {} 来创建空字典
 emptyDict = {}
@@ -35,7 +35,7 @@ print("Length:", len(emptyDict))
 # 查看类型
 print(type(emptyDict))
 
-print("【2】 访问字典里的值 *******************************************")
+print("*******************************************【2】 访问字典里的值 *******************************************")
 # 把相应的键放入到方括号中，如下实例:
 tinydict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
 print("tinydict['Name']: ", tinydict['Name'])
@@ -44,7 +44,7 @@ print("tinydict['Age']: ", tinydict['Age'])
 tinydict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
 # print("tinydict['Alice']: ", tinydict['Alice'])  #异常 KeyError: 'Alice'
 
-print("【3】 修改字典 *******************************************")
+print("*******************************************【3】 修改字典 *******************************************")
 # 向字典添加新内容的方法是增加新的键/值对，修改或删除已有键/值对如下实例:
 tinydict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
 tinydict['Age'] = 8  # 更新 Age
@@ -52,7 +52,7 @@ tinydict['School'] = "菜鸟教程"  # 添加信息
 print("tinydict['Age']: ", tinydict['Age'])
 print("tinydict['School']: ", tinydict['School'])
 
-print("【4】 删除字典元素 *******************************************")
+print("*******************************************【4】 删除字典元素 *******************************************")
 # 能删单一的元素也能清空字典，清空只需一项操作。
 # 显式删除一个字典用del命令，如下实例：
 tinydict = {'Name': 'Runoob', 'Age': 7, 'Class': 'First'}
@@ -63,7 +63,7 @@ del tinydict  # 删除字典
 # print("tinydict['School']: ", tinydict['School']) # 异常 NameError: name 'tinydict' is not defined. Did you mean: 'tinydict1'?
 # 但这会引发一个异常，因为用执行 del 操作后字典不再存在：
 
-print("【5】 字典键的特性 *******************************************")
+print("*******************************************【5】 字典键的特性 *******************************************")
 # 字典值可以是任何的 python 对象，既可以是标准的对象，也可以是用户定义的，但键不行。
 # 两个重要的点需要记住：
 # 1）不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住，如下实例：
@@ -71,9 +71,9 @@ tinydict = {'Name': 'Runoob', 'Age': 7, 'Name': '小菜鸟'}
 print("tinydict['Name']: ", tinydict['Name'])
 # 2）键必须不可变，所以可以用数字，字符串或元组充当，而用列表就不行，如下实例：
 # tinydict = {['Name']: 'Runoob', 'Age': 7}  # 异常 TypeError: unhashable type: 'list'
-print ("tinydict['Name']: ", tinydict['Name'])
+print("tinydict['Name']: ", tinydict['Name'])
 
-print("【6】 字典内置函数&方法 *******************************************")
+print("*******************************************【6】 字典内置函数&方法 *******************************************")
 # Python字典包含了以下内置函数：
 # 函数                                       描述
 # len(dict)                                 计算字典元素个数，即键的总数。
