@@ -26,16 +26,16 @@ b = set('alacazam')
 print(a)
 print(b)
 print(a - b)  # 集合a中包含而集合b中不包含的元素
-{'r', 'd', 'b'}
-print(a | b)  # 集合a或b中包含的所有元素
-print(a & b)  # 集合a和b中都包含了的元素
-print(a ^ b)  # 不同时包含于a和b的元素
+print(a | b)  # 集合a或b中包含的所有元素   并集
+print(a & b)  # 集合a和b中都包含了的元素   交集
+print(a ^ b)  # 不同时包含于a和b的元素     补集
 
 # 类似列表推导式，同样集合支持集合推导式(Set comprehension):
 a = {x for x in 'abracadabra' if x not in 'abc'}
-print(a)
+print("a:",a)
 
-print("【1】 集合的基本操作 *******************************************")
+
+print("*******************************************【1】 集合的基本操作 *******************************************")
 # 1、添加元素
 # 语法格式如下：
 # s.add(x)
@@ -102,25 +102,25 @@ print("Facebook" in thisset)
 # 集合内置方法完整列表
 # 方法	                            描述
 # add()	                            为集合添加元素
+# update()	                        给集合添加元素
+# discard()	                        删除集合中指定的元素（不存在不报错）
+# remove()	                        移除指定元素（不存在报错）
+# pop()	                            随机移除元素
 # clear()	                        移除集合中的所有元素
 # copy()	                        拷贝一个集合
 # difference()	                    返回多个集合的差集
 # difference_update()	            移除集合中的元素，该元素在指定的集合也存在。
-# discard()	                        删除集合中指定的元素
 # intersection()	                返回集合的交集
 # intersection_update()	            返回集合的交集。
 # isdisjoint()	                    判断两个集合是否包含相同的元素，如果没有返回 True，否则返回 False。
 # issubset()	                    判断指定集合是否为该方法参数集合的子集。
 # issuperset()	                    判断该方法的参数集合是否为指定集合的子集
-# pop()	                            随机移除元素
-# remove()	                        移除指定元素
 # symmetric_difference()	        返回两个集合中不重复的元素集合。
 # symmetric_difference_update()	    移除当前集合中在另外一个指定集合相同的元素，并将另外一个指定集合中不同的元素插入到当前集合中。
 # union()	                        返回两个集合的并集
-# update()	                        给集合添加元素
 # len()	                            计算集合元素个数
 
-print("【2】 笔记 *******************************************")
+print("*******************************************【2】 笔记 *******************************************")
 # s.update( "字符串" ) 与 s.update( {"字符串"} ) 含义不同:
 # s.update( {"字符串"} ) 将字符串添加到集合中，有重复的会忽略。
 # s.update( "字符串" ) 将字符串拆分单个字符后，然后再一个个添加到集合中，有重复的会忽略。
@@ -143,5 +143,5 @@ print(my_set)
 # 3.如无必要，不要写成如下形式
 my_set = set('apple')
 print(my_set)
-my_set1 = set(('apple'))
+my_set1 = set({'apple'})
 print(my_set1)
