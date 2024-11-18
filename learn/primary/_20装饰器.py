@@ -1,4 +1,5 @@
 # !/usr/local/bin/python3.12
+
 # Python 装饰器
 # 装饰器（decorators）是 Python 中的一种高级功能，它允许你动态地修改函数或类的行为。
 # 装饰器是一种函数，它接受一个函数作为参数，并返回一个新的函数或修改原来的函数。
@@ -11,6 +12,14 @@
 # 缓存: 装饰器可用于实现函数结果的缓存，以提高性能。
 # 基本语法
 # Python 装饰允许在不修改原有函数代码的基础上，动态地增加或修改函数的功能，装饰器本质上是一个接收函数作为输入并返回一个新的包装过后的函数的对象。
+def before_call_code():
+    print("Before calling the function")
+
+
+def after_call_code():
+    print("After calling the function")
+
+
 def decorator_function(original_function):
     def wrapper(*args, **kwargs):
         # 这里是在调用原始函数前添加的新功能
@@ -29,7 +38,10 @@ def decorator_function(original_function):
 # 使用装饰器
 @decorator_function
 def target_function(arg1, arg2):
-    pass  # 原始函数的实现
+    print(f"Target function called with arguments: {arg1}, {arg2}")  # 原始函数的实现
+
+
+target_function(1, 2)
 
 
 # 解析：decorator 是一个装饰器函数，它接受一个函数 func 作为参数，并返回一个内部函数 wrapper，在 wrapper 函数内部，你可以执行一些额外的操作，然后调用原始函数 func，并返回其结果。
@@ -38,6 +50,10 @@ def target_function(arg1, arg2):
 # 当我们使用 @decorator_function 前缀在 target_function 定义前，Python会自动将 target_function 作为参数传递给 decorator_function，然后将返回的 wrapper 函数替换掉原来的 target_function。
 # 使用装饰器
 # 装饰器通过 @ 符号应用在函数定义之前，例如：
+def time_logger(args):
+    pass
+
+
 @time_logger
 def target_function():
     pass
@@ -47,8 +63,6 @@ def target_function():
 
 def target_function():
     pass
-
-
 target_function = time_logger(target_function)
 
 
@@ -61,6 +75,7 @@ def repeat(n):
     def decorator(func):
         def wrapper(*args, **kwargs):
             for _ in range(n):
+                print(_)
                 result = func(*args, **kwargs)
             return result
 
@@ -97,4 +112,4 @@ def my_function():
     pass
 
 
-print("【7】 笔记 *******************************************")
+
