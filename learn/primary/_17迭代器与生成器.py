@@ -1,6 +1,8 @@
 # !/usr/local/bin/python3.12
+import sys  # 引入 sys 模块
+
 # Python3 迭代器与生成器
-print("【1】 迭代器 *******************************************")
+print("*******************************************【1】 迭代器 *******************************************")
 # 迭代是 Python 最强大的功能之一，是访问集合元素的一种方式。
 # 迭代器是一个可以记住遍历的位置的对象。
 # 迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。
@@ -8,6 +10,7 @@ print("【1】 迭代器 *******************************************")
 # 字符串，列表或元组对象都可用于创建迭代器：
 list = [1, 2, 3, 4]
 it = iter(list)  # 创建迭代器对象
+print(type(it))
 print(next(it))  # 输出迭代器的下一个元素
 print(next(it))
 
@@ -18,7 +21,7 @@ for x in it:
     print(x, end=" ")
 
 # 也可以使用 next() 函数：
-import sys  # 引入 sys 模块
+
 
 list = [1, 2, 3, 4]
 it = iter(list)  # 创建迭代器对象
@@ -27,9 +30,11 @@ while True:
     try:
         print(next(it))
     except StopIteration:
-        sys.exit()
+        # sys.exit()
+        print("StopIteration!")
+        break
 
-print("【2】 创建一个迭代器 *******************************************")
+print("*******************************************【2】 创建一个迭代器 *******************************************")
 
 
 # 把一个类作为一个迭代器使用需要在类中实现两个方法 __iter__() 与 __next__() 。
@@ -58,7 +63,7 @@ print(next(myiter))
 print(next(myiter))
 print(next(myiter))
 
-print("【3】 StopIteration *******************************************")
+print("*******************************************【3】 StopIteration *******************************************")
 
 
 # StopIteration 异常用于标识迭代的完成，防止出现无限循环的情况，在 __next__() 方法中我们可以设置在完成指定循环次数后触发 StopIteration 异常来结束迭代。
@@ -83,7 +88,7 @@ myiter = iter(myclass)
 for x in myiter:
     print(x)
 
-print("【4】 生成器 *******************************************")
+print("*******************************************【4】 生成器 *******************************************")
 
 
 # 在 Python 中，使用了 yield 的函数被称为生成器（generator）。
@@ -107,22 +112,23 @@ print(next(generator))  # 输出: 5
 print(next(generator))  # 输出: 4
 print(next(generator))  # 输出: 3
 
+# generator = countdown(5)
 # 使用 for 循环迭代生成器
 for value in generator:
     print(value)  # 输出: 2 1
+
 
 # 以上实例中，countdown 函数是一个生成器函数。它使用 yield 语句逐步产生从 n 到 1 的倒数数字。在每次调用 yield 语句时，函数会返回当前的倒数值，并在下一次调用时从上次暂停的地方继续执行。
 # 通过创建生成器对象并使用 next() 函数或 for 循环迭代生成器，我们可以逐步获取生成器函数产生的值。在这个例子中，我们首先使用 next() 函数获取前三个倒数值，然后通过 for 循环获取剩下的两个倒数值。
 # 生成器函数的优势是它们可以按需生成值，避免一次性生成大量数据并占用大量内存。此外，生成器还可以与其他迭代工具（如for循环）无缝配合使用，提供简洁和高效的迭代方式。
 
 # 以下实例使用 yield 实现斐波那契数列：
-import sys
 
 
 def fibonacci(n):  # 生成器函数 - 斐波那契
     a, b, counter = 0, 1, 0
     while True:
-        if (counter > n):
+        if counter > n:
             return
         yield a
         a, b = b, a + b
@@ -137,17 +143,18 @@ while True:
     except StopIteration:
         sys.exit()
 
-print("【5】 笔记 *******************************************")
+print("*******************************************【5】 笔记 *******************************************")
+
+
 # 来看一下有yield和没有yield的情况会对生成器了解多点：
 
 # 第一种：使用 yield
-import sys
 
 
 def fibonacci(n, w=0):  # 生成器函数 - 斐波那契
     a, b, counter = 0, 1, 0
     while True:
-        if (counter > n):
+        if counter > n:
             return
         yield a
         a, b = b, a + b
@@ -162,6 +169,8 @@ while True:
         print(next(f), end=" ")
     except:
         sys.exit()
+
+
 # 输出结果：
 #
 # 0 1,1
@@ -177,8 +186,6 @@ while True:
 # 55 89,144
 
 # 第二种：不使用 yield
-
-import sys
 
 
 def fibonacci(n, w=0):  # 生成器函数 - 斐波那契
@@ -227,7 +234,8 @@ for g in m:
 
 
 # 什么情况下需要使用 yield？
-# 一个函数 f，f 返回一个 list，这个 list 是动态计算出来的（不管是数学上的计算还是逻辑上的读取格式化），并且这个 list 会很大（无论是固定很大还是随着输入参数的增大而增大），这个时候，我们希望每次调用这个函数并使用迭代器进行循环的时候一个一个的得到每个 list 元素而不是直接得到一个完整的 list 来节省内存，这个时候 yield 就很有用。
+# 一个函数 f，f 返回一个 list，这个 list 是动态计算出来的（不管是数学上的计算还是逻辑上的读取格式化），并且这个 list 会很大（无论是固定很大还是随着输入参数的增大而增大），这个时候，
+# 我们希望每次调用这个函数并使用迭代器进行循环的时候一个一个的得到每个 list 元素而不是直接得到一个完整的 list 来节省内存，这个时候 yield 就很有用。
 # 具体怎么使用 yield 参考：Python yield 使用浅析
 # 以斐波那契函数为例，我们一般希望从 n 返回一个 n 个数的 list：
 
