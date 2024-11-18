@@ -1,4 +1,5 @@
 # !/usr/local/bin/python3.12
+
 # Python lambda（匿名函数）
 # Python 使用 lambda 来创建匿名函数。
 # lambda 函数是一种小型、匿名的、内联函数，它可以具有任意数量的参数，但只能有一个表达式。
