@@ -1,7 +1,7 @@
 # !/usr/local/bin/python3.12
 # Python3 OS 文件/目录方法
 # os 模块提供了非常丰富的方法用来处理文件和目录。常用的方法如下表所示：
-# 方法                                        描述
+# 方法                                       描述
 # os.access(path, mode)                     检验权限模式
 # os.chdir(path)                            改变当前工作目录
 # os.chflags(path, flags)                   设置路径的标记为数字标记。
