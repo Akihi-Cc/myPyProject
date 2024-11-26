@@ -1,48 +1,36 @@
 # !/usr/local/bin/python3.12
+import sys
 # Python3 错误和异常
 # Python 有两种错误很容易辨认：语法错误和异常。
 # Python assert（断言）用于判断一个表达式，在表达式条件为 false 的时候触发异常。
 
-# 语法错误
+print("*******************************************【1】 语法错误 *******************************************")
 # Python 的语法错误或者称之为解析错，是初学者经常碰到的，如下实例
 
-# >>> while True print('Hello world')
-# File "<stdin>", line 1, in ?
-# while True print('Hello world')
-# ^
-# SyntaxError: invalid syntax
+# while True print('Hello world')  #异常 SyntaxError: invalid syntax
 # 这个例子中，函数 print() 被检查到有错误，是它前面缺少了一个冒号 : 。
 # 语法分析器指出了出错的一行，并且在最先找到的错误的位置标记了一个小小的箭头。
 
-# 异常
+print("*******************************************【2】 异常 *******************************************")
 # 即便 Python 程序的语法是正确的，在运行它的时候，也有可能发生错误。运行期检测到的错误被称为异常。
 # 大多数的异常都不会被程序处理，都以错误信息的形式展现在这里:
 # 实例
-# >>> 10 * (1/0)             # 0 不能作为除数，触发异常
-# Traceback (most recent call last):
-# File "<stdin>", line 1, in ?
-# ZeroDivisionError: division by zero
-# >>> 4 + spam*3             # spam 未定义，触发异常
-# Traceback (most recent call last):
-# File "<stdin>", line 1, in ?
-# NameError: name 'spam' is not defined
-# >>> '2' + 2               # int 不能与 str 相加，触发异常
-# Traceback (most recent call last):
-# File "<stdin>", line 1, in <module>
-# TypeError: can only concatenate str (not "int") to str
+10 * (1/0)             # 0 不能作为除数，触发异常
+
+'2' + 2               # int 不能与 str 相加，触发异常
 # 异常以不同的类型出现，这些类型都作为信息的一部分打印出来: 例子中的类型有 ZeroDivisionError，NameError 和 TypeError。
 # 错误信息的前面部分显示了异常发生的上下文，并以调用栈的形式显示具体信息。
 
-# 异常处理
+print("*******************************************【3】 异常处理 *******************************************")
 # try/except
 # 异常捕捉可以使用 try/except 语句。
 # 以下例子中，让用户输入一个合法的整数，但是允许用户中断这个程序（使用 Control-C 或者操作系统提供的方法）。用户中断的信息会引发一个 KeyboardInterrupt 异常。
-# while True:
-#     try:
-#         x = int(input("请输入一个数字: "))
-#         break
-#     except ValueError:
-#         print("您输入的不是数字，请再次尝试输入！")
+while True:
+    try:
+        x = int(input("请输入一个数字: "))
+        break
+    except ValueError:
+        print("您输入的不是数字，请再次尝试输入！")
 
 # try 语句按照如下方式工作；
 # 首先，执行 try 子句（在关键字 try 和关键字 except 之间的语句）。
@@ -55,10 +43,9 @@
 # except (RuntimeError, TypeError, NameError):
 # pass
 # 最后一个except子句可以忽略异常的名称，它将被当作通配符使用。你可以使用这种方法打印一个错误信息，然后再次把异常抛出。
-import sys
 
 try:
-    f = open('myfile.txt')
+    f = open('/Users/liuchao/Desktop/foo1.txt')
     s = f.readline()
     i = int(s.strip())
 except OSError as err:
@@ -74,14 +61,15 @@ except:
 # else 子句将在 try 子句没有发生任何异常的时候执行。
 
 # 以下实例在 try 语句中判断文件是否可以打开，如果打开文件时正常的没有发生异常则执行 else 部分的语句，读取文件内容：
-# for arg in sys.argv[1:]:
-try:
-    f = open(arg, 'r')
-except IOError:
-    print('cannot open', arg)
-else:
-    print(arg, 'has', len(f.readlines()), 'lines')
-    f.close()
+for arg in sys.argv[1:]:
+    print(arg)
+    try:
+        f = open(arg, 'r')
+    except IOError:
+        print('cannot open', arg)
+    else:
+        print(arg, 'has', len(f.readlines()), 'lines')
+        f.close()
 
 
 # 使用 else 子句比把所有的语句都放在 try 子句里面要好，这样可以避免一些意想不到，而 except 又无法捕获的异常。
@@ -100,18 +88,18 @@ except ZeroDivisionError as err:
 # try-finally 语句
 # try-finally 语句无论是否发生异常都将执行最后的代码。
 # 以下实例中 finally 语句无论异常是否发生都会执行：
-try:
-    runoob()
-except AssertionError as error:
-    print(error)
-else:
-    try:
-        with open('file.log') as file:
-            read_data = file.read()
-    except FileNotFoundError as fnf_error:
-        print(fnf_error)
-finally:
-    print('这句话，无论异常是否发生都会执行。')
+# try:
+#     runoob()
+# except AssertionError as error:
+#     print(error)
+# else:
+#     try:
+#         with open('file.log') as file:
+#             read_data = file.read()
+#     except FileNotFoundError as fnf_error:
+#         print(fnf_error)
+# finally:
+#     print('这句话，无论异常是否发生都会执行。')
 
 # 抛出异常
 # Python 使用 raise 语句抛出一个指定的异常。
